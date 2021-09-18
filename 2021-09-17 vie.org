@@ -106,14 +106,14 @@ Propiedades de los jeugos de intrucciones
 ** TSR
 **** Comparaam ventajas/incovenietnes de los dos modelos
 - Servidor concurente
-  Ven. cada hilo se puede sustpende por seprado
-  Inc. gestionar el esatd compartido requiere control concurrencia
-  Inc. Complejidad: dificil implantar sin errores,
+   + Ven. cada hilo se puede sustpende por seprado
+   + Inc. gestionar el esatd compartido requiere control concurrencia
+   + Inc. Complejidad: dificil implantar sin errores,
 - asincrono
-  ven. evita la complejidad de gestionar estado compartido
-  ven. modelo más primo a la fomra dreal de trabajo
-  inc. tiene que considerase el orden de activación (orden en la cola de evento {promesas, async, etc})
-  inc. todo entorno tiene que ser asisncrónico
+   + ven. evita la complejidad de gestionar estado compartido
+   + ven. modelo más primo a la fomra dreal de trabajo
+   + inc. tiene que considerase el orden de activación (orden en la cola de evento {promesas, async, etc})
+   + inc. todo entorno tiene que ser asisncrónico
 *** Tema 2 - NodeJS y JavaScrip
 JavaScrip
 - lenguaje de alto nivel de abstración
