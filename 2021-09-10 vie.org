@@ -1,0 +1,173 @@
+#+TITLE: septiembre 10, 2021 (viernes)
+** TSR - áreas alicación SD
+
+Entonrno de computación acutal
+- Aprovechar
+  + Ofrecer sericios remotos y robustos
+  + Exporar la coooperación entre disposotivos para resolver problemas complejos (nodos)
+  + Desarrollar nuevos escenarios
+*** Servicios robustos
+
+- Cluster
+- Cloud computing
+
+*** Coperación para resolver problemas complejos
+
+Aplicaciones -> proyectos científicos y de ingeniería
+
+Alternativa -> sistemas distribuidos
+- Computación cooperativa
+  Muchos  PCs inflrautilizados => el prpietario dona parte de su potencia de cálculo para ayudar a resolver problemas
+
+- Map/reduce
+  el servidor reparte el trabajo
+
+- Broker Worker
+  Un nodo brker actúa como intermediario: recibe todas la solicitudes y reparte las tareas entre workers
+
+
+*** Nueva funcionalidad
+
+La parte cliente ya no es necesariamente una persona frente a un interfraz usario
+- el cliente es una aplicaión -> Bussiness to Bussiness(B2B)
+- el cliente es una MOT
+  + redes de sensores
+  + internet de la cosas
+#+TITLE: septiembre 10, 2021 (viernes)
+** ISW
+
+- ISW comienza bastante antes de escribir líneas de código y continúa después de qe la primera versión del prducto hata sido completada
+- Planificación, seguimiento...
+
+
+Ser rápido y eficaces a cambio en los requisistos
+*** Proceso del Software
+Marco para el desarrollo de software
+- Proceso de producción
+- Proceso de gestión
+*** Gestión industriales software
+*** Gestión proyecto software
+*** El plan de proyecto
+1. Intrducción
+2. Organización
+3. Analisis de riesgos
+4. REquisitos
+5. división
+6. planificación
+7. mecanismos
+*** Proceso de desarrollo
+Ciclo de vida
+
+actividades:
+- Especificación
+- Desarrollo
+- Validadción
+*** Models de ciclos de vida
+- Codificar y corregir
+- clásico o en casada
+  + una actividad detrás de otra
+- clásico con prototipado
+  + se utiliza el prototipo para que el usuario pueda tener una idea del producto final
+- programación automática
+- desarrollo evolutivo
+  + Adaptable a requisitos cambiantes
+  + se elaboran versiones cada vez más completas del software
+- Incremental
+  + Secuencia de aplicaciones del ciclo clásico
+  + Cada interación produce un incremento del producto
+- en espiral
+  + efoque . interativo iterativo evolutivo
+  + introduce el análisis de riesgos en el proceso de desarrollo
+*** Metodología
+Define - Quién/Qué/Cómo/Cuándo
+
+define un proceso exppícito de desarrollo de software
+
+no hay una metodoloia de sofware universal
+
+RUP-Tradicional
+Ágile - Moderno
+*** Rup
+UML -> leguaje de modelado
+
+
+Proceso diregido por los casa de uso
+Proceso iterativo e incrmental
+Prorceso centrado en la arquitectura
+
+4 fases
+- inicio
+  + ambito y objetivos
+- elaboraición
+- contrucicción
+- transición
+*** Metodologías Ágiles
+Valoran:
+ - al individuo y las interacciones en el equipo
+ - desrrollar software
+ -
+
+
+ principios
+ - satifacer al clinte
+ - bienvenida a cambios
+ - entregar el software frecuentemente con el menor intervalo
+ - la gente de negocios y desarrolladores trabajan juntos
+ - diágolo cara a cara
+ - desarrollar software es la primer madida de progreso
+ - los procesos ágiles promueven un desarrolo llevadero
+ - la atención continua a la calidad técnica y al buen diseño
+*** Test
+1) ¿Qué es el software?
+   a) Un conjunto de programas de ordenador que resuelven un problema particular.
+   b) * Un conjunto de programas de ordenador  y su documentación asociada. Estos programas pueden desarrollarse para un cliente y propósito específico, o ser una solución general.
+   c) Se entiende por software a una solución implementada en algún tipo de lenguaje de programación a un problema general.
+   d) Es únicamente la parte lógica de un sistema, formado por instrucciones que al ejecutarse proporcionan la funcionalidad deseada.
+
+2) ¿Cuáles son los atributos del buen software?
+   a) Un buen software es aquel que utiliza pocos recursos y responde rápidamente al usuario.
+   b) El software debe tener la funcionalidad y el rendimiento requeridos por el usuario.
+   c) El software debe realizar las tareas esperadas, con pocos recursos y de forma eficaz.
+   d) * El software debe tener la funcionalidad y el rendimiento requeridos por el usuario, además de poderse mantener, ser confiable y ser fácil de usar.
+3) ¿Qué es la ingeniería del software?
+   a) La ingeniería del software comprende la teoría y los fundamentos del desarrollo del software.
+   b) La ingeniería del software se refiere a todos los aspectos del desarrollo de sistemas informáticos, incluyendo hardware, software e ingeniería de procesos.
+   c) La ingeniería del software es una disciplina de ingeniería que comprende todos los aspectos de la producción de software.
+   d) * Ninguna respuesta es correcta.
+4) ¿Cuáles son las actividades principales de la ingeniería del software?
+   a) De entre las distintas actividades a realizar, las principales son el diseño y desarrollo del software.
+   b) De entre las distintas actividades a realizar, las esenciales son el diseño y la validación del software.
+   c) Las principales actividades son la validación y la evolución del software.
+   d) * Las principales actividades son la especificación, el desarrollo, la
+validación y la evolución del software.
+
+1. d
+2. b
+3. b
+4. d
+5. d
+6. b
+
+
+1. b
+2. d
+3. c
+4. d
+5. a
+6. b
+7.
+
+
+1. bb
+2. d
+3. c
+4. d
+5. a
+6. b
+7. b
+8. d
+9. d
+10. b
+11. d
+12. d
+13. b

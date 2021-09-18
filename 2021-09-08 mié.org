@@ -1,0 +1,101 @@
+#+TITLE: septiembre 08, 2021 (miércoles)
+** AIC
+Profesor: Pedro Juan López Rodrigez
+*** Evaluación
+- (10%) - 4 Prubas objetivas de seguimiento (PoliformaT)
+  + La nota obtenida quita el peso a los examenes parciales
+    - Si tienes un 0 -> los parciales cuentas un 80%
+    - Si tienes un 5 -> los parciales cuentas un 75%
+    - Si tienes un 10 -> los parciales cuentas un 70%
+  + NO hay nota mínima
+- (70%) - 2 exámenes parciales
+  + Variable hasta un 80% en función de las pruebas objetivas
+  + NO requieren nota mínima
+  + Recuperable (te se queda la nota más alta de los dos examenes)
+- (20%) - 1 examen de prácticas
+  + Recuperable (te se queda la nota más alta de los dos examenes)
+*** UT 1. Introducción a la Aquitectura de Computadores
+**** Concpeto de aquitectura
+Define su hardware, distinguiendo entre:
+- Juego de intrucciónes
+  + Intrucciones de la máquina ofrece al programador (operaciones, tipo...)
+- Organización del procesador
+  + Decribe los elementos lógicos que permiten ejecutar las intrucciones
+- Tecnología base (Implementación)
+  + Estable la realización del dispositivo en forma de transistores, conexiones, etc
+
+
+Tarea del Ingenerio de Computadores
+- Partiendo de unos requisistos establecidos y teniendo en cuenta las limitaciones tecnológicas, energéticas y de coste existentes
+- Realizar el mejor diseño
+**** Teclonogía, coste y consumo
+- Ley de Moore
+- Influenia del transistor
+- Consumo y disipación de calor
+  + Potencia por transistor = Pot(Dinamica) + Pot(estatica)
+** SIN
+Profesor: Federico Barber Sanchis
+
+Conocimiento -> Representación
+Procesado => busqueda
+
+Aprecendizaje y perfeción
+*** Evaluación
+(1,25 puntos) A1. Prueba de respuesta abierta sobre laboratorio de B1 .
+(1,75 puntos) A2. Prueba de test sobre B1 .
+(2 puntos)    A3. Prueba de respuesta abierta sobre B1.
+(1,25 puntos) A4. Prueba de respuesta abierta sobre laboratorio de B2 .
+(1,75 puntos) A5. Prueba de test sobre B2 .
+(2 puntos)    A6. Prueba de respuesta abierta sobre B2 .
+
+No se requieren puntuaciones mínimas en los diferentes actos de evaluación.
+
+La nota final (NF) se calcula mediante la fórmula siguiente:
+    NF = L + ( 1 - L/10 ) * (T+P) * 10/7,5
+
+L es la nota de laboratorio: L=A1+A4
+T es la nota de test: T=A2+A5
+P es la nota de problemas: P=A3+A6
+*** Tema 0: Introducción
+- ¿Qué es la Intelegencia Artificial?
+- Test de Turin
+  + Saber si la maquina puede emular al humano
+- Los sistemas inteligentes en la industria informática
+*** Tema 1
+**** Representaicón del Conocimiento
+- Representación HECHOS: Base de Hechose
+**** sitema basados en reglas (sbr)
+sistemas que utilizan relgas como base de la representación del conocimiento
+
+Tres elementos:
+- Base de Reglas
+  Acciones del problema
+
+- Base de Hechos
+  Situaciones
+
+- Motor de inferencia
+  Procesa la información de la BH y BR
+  Es el mecanismo de razoanamiento
+
+Problema:
+- Estados del Problema
+  + Inicial, Intermedios, Final
+  + Hechos Dinámicos
+  + Hechos Estáticos
+- Reglas de Movimientos
+  + Qué puedo hacer?
+
+**** CLIPS: una herramiento para la construcción de SBR
+**** Base de Hechos en CLIPS
+los hechos son los elementos de información básica. la BH es una lista de hechos
+
+un hecho es una lista de valores atómicos que se referencian posiocionalmente
+
+Hecho ordenado: símbolo sequido de cero o más elementos separados por espacios en blanco y delimitados por un paréntesis de apertura a la izquierda y un paréntesis de cierre a la derecha. El primer elemento de un hehco establece una ´relacion´ con el resto de elementos del hecho ordenado.
+    Ej. (empty)
+        (on blockA blockB)
+        (puzzle 1 2 4 7 8 6 3 5)
+
+**** Base de Reglas en CLIPS
+**** Pattern-matching

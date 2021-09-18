@@ -1,0 +1,142 @@
+#+TITLE: septiembre 16, 2021 (jueves)
+** BDA
+*** REtricicón de intergridad
+- Restricciones sobre atributos: de tioi de datos y de bolro no nulo
+  #+begin_src latex
+    $\forall t(t \in R \rightarrow  \neg\exists \  Ai \in K \wedge nulo(\textrm{t.Ai}))$
+  #+end_src
+- Restricicondes de unicidad
+- Restricción de clave primaria
+  + CP se define como clave primaria de R, si R satisface la restricicón de unicidad y valor no nulo
+  + nota: Cp debe ser minimal, es decir no debe haber un subconjunto propio de CP que a su vez pueda ser clave primaria
+- rescciones de clave ajena (integridad refierencial)
+  + Sea Bi un atribut de S y Aj un atributo d R
+    - Aj tiene restricción de unicidad, o es la clave primaria de R
+    - Bj y Aj son los mismo tipo de datos
+
+
+Nombre del departamente junto a el nombre de su director
+#+begin_src sql
+SELECT: D.nombre, P.nombre
+FROM: Departamento D, Profesor P
+WHERE: D.director = P.dni ;
+#+end_src
+** CPA
+#+begin_src c
+int main(){
+    int i, n;
+    double *x;
+    printf("Dime el número de elementos");
+    scanf("%d",&n);
+    x = (double*)malloc(n*sizeof(double));
+    calcula_raices(x,n);
+}
+#+end_src
+*** Memorio compartida
+**** Procesos compartidos
+fork-join
+**** Modelo de Memoria Compartida
+- Espacio de direcciones de mememoria único poada todos
+- pogramación bastante similiar al casa secuencial
+  + Cualquier dato es accesible por cualquiera
+  + No hay que intercambiar datos explícitamente
+- Incoventiente:
+  + el acceso concurrente a memoria puede dar problemas
+    - Se ha de coordenar
+  + difícil controloar la localidad de datoas (memoria cahché)
+**** Modelo de Hilos
+Modelo ligado al de memoria compartida
+
+Hilo(thead): flujo de intrucciones independiente que puede ser planificado par ejecución por el sistema operactio
+
+- Un proceso puede tener múltiples hilos de ejecución
+- Cada hilo tiene datos "privados"
+- Comparten recuros/memoria del proceso
+- Se requieren sincronización
+**** Hilos POSIX
+Estantarización de hiloss en sistemas Unix
+- Basado en libría (API de llamadas al S.O)
+- Solo lenguaje C
+- Paralelismo exlícito: esfuezo de programación
+**** OpenMP
+Estantarización de hilos potable
+- Basado en directiva de compilador
+- Portable multi-plataforma
+**** Procesos Unix
+Cada proces contine informaicón sobre recursos y estado de ejecución
+- Código del programa
+- Varibales
+- COntenxto de ejecución
+- Recursos del sisetma
+
+En proceso mutihilo
+- Cada hilo tiene su propio contexto de ejecución
+**** Exclusión mútua y sincronización
+*** OpenMP
+**** Conceptos básicos
+***** Modelo de porgramación
+se basa principalmente en directivas del compilardor
+Ventajas:
+- Facilita la migraición
+- Permite la eraleización incremental
+- Permite la optimización por parte del compilador
+***** Modelo de ejecución
+OpenMP sigue un esquema fork-join
+
+Hay directivas para crear hilos y fiidir el trabajo
+
+Esquema:
+- El hilo principal ejecuta la parte secuenial
+  [..]
+
+Los hilos inactivos no se destruyen quedan a la esera de la siguiente región paralela
+
+Cada hilo tiene s propio contexot de ejecución (incluyendo la pila)
+***** Sintaxisi
+Directivas
+#+begin_src c
+#pragma omp <directiva> [clausula [...]]
+#+end_src
+
+Uso de funciones:
+#+begin_src c
+#include <omp.h>
+...
+iam = omp_get_thread_num();
+#+end_src
+
+Compilación: la macro _OPENMP contiene la fecha de la versión de soportada
+***** Ejemplo
+#+begin_src c
+#include <omp.h>
+void daxpy(int n , double a, double *x, double *y, double *z){
+    int i;
+    #pragma omp parallel for
+    for (i=0;i<n;i++)
+        z[i] = a*x[i] + y[i];
+}
+#+end_src
+
+- al llegar a la firectiva arallel se crean los ilos(si no se han creado antes)
+- las iteraciones del buclo se reparten entre los hilos
+- por defeto, las variables son compartidas,  excepto la variable del bucle (i) que es privada
+- Al finalzar se sincronizan todo los hilos
+***** Número e Indentificador de Hilo
+el número de hilos se puede especificar
+- con la cláusula num_threads
+- con la función omp_set_num_threads() antes de la región paralela
+
+funciones útilies
+- omp_get_num_threads()
+- omp_get_thread_num() identificar del hilo, (empieza en 0)
+***** Directiva parallel
+Se ejecuta de forma replicada el bloque que va a continiación
+
+OpenMP impor restrucciones al tipo de blucle, por ejemplo:
+- Se tiene que saber a priori el número de interaciones que ha de hacer el bucle
+***** Tipos de Variables
+- Privadas
+- Compartidas
+**** Bubles paralelos
+**** Regiones Paralelos
+**** Sincronización

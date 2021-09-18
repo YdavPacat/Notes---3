@@ -1,0 +1,12 @@
+#+TITLE: septiembre 09, 2021 (jueves)
+
+** CPA
+Libro de ejercicios -> Ejercicios de programación paralela OpenMP y MPI
+
+*** Evaluación
+- 70% - Pruebas escritas
+  + 35% - bloque 1 | mínimo de 4/10
+  + 35% - bloque 2 | mínimo de 4/10
+- 30% - Laboratorio (no recuperable)
+  + 15% - OpenMP
+  + 15% - MPI

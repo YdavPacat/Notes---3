@@ -1,0 +1,171 @@
+#+TITLE: septiembre 14, 2021 (martes)
+** TSR
+*** evolución histórica de los istemas informáticos
+CC(cloud compuntig) = externaclización del cluster
+ - Evita la adquisisción
+ - Accesos a través de la red
+ - comparicón eficiente de recursos adpatación a cantidades de usarios variable
+
+resumen:
+- mainframe
+- PCs
+- Cluster (empresa)
+- Cloud compuntig (global)
+*** Ciclo de vida de una sevicio - Roles
+- desarrollador => hace el código
+- proveedor => decide las caracteristicas del sercicio, los componentes que lo forma, y la forma en que debe configurarse y administrarse
+- adminstrador => se preocuppa de que cada compoente software y hardware esté en su sitio y correctamente configurado
+- usuario => utiliza el (accide al) servicio
+
+  |                 | desarrollador     | proveedor          | adminstrador  | usuario    |
+  |-----------------+-------------------+--------------------+---------------+------------|
+  | mainframe       | usarios           | usuario            | especialistas | pocos      |
+  | PCs             | empresasSoftware  | propietario        | propietario   | único      |
+  | Centro cómputo  | empresasSoftware  | especialistas      | espeicalistas | muchos     |
+  | Cloud computing | provedor servicio | proveedor servicio | especialistas | muchísimos |
+
+*** Cloud computing - Niveles
+Diferenciar 3 niveles
+- SaaS - Software como servicio (Software as a Service)
+- PaaS - Plataforma como sercicio (Platform as a Service)
+- IasS - Infrastrucutura como sercicio (Infrastucture as a Service)
+
+**** SaaS
+Conteción limitada: se reservan recursos para la demanda esperada
+
+- Inicialmente eso era inflexible -> dificil compartir recursos
+- Posteriormente -> asignacaicón de recursos de forma dinámica
+- Debido a la alta competividad en el ofrecicmiento de servicio
+
+**** PaaS
+Todavia en sus inicio
+
+Facilita el desarrollo y puesta en marcha de servicios
+
+**** Iaas
+Asigna resursos de cómuputo baja petición
+- capacidades para los ordinadores y red -> elaticidad
+- cargar las imágnes de SO que nos interesen
+
+Posible garcias a la tecnología de virtualización
+- Fácil configurar recursos de cómputo virtuales, instalar imagen de sitema sobre una máquina virtual
+
+*** Servidores escalables
+Para implantar servicios distribuidos utlizamos el modelo cliente/servidor
+
+Para implementar un servidor escalable son posible dos paradigmas
+- Servidor concurente
+- Servidor asincrónico
+
+
+**** Servidor asincrónico
+Dirigido por eventos (NodeJS)
+
+Programa = conjunto de acciones preparadas para responder a diferentes tipos de eventos
+
+Si la llegada de un evento hace cierta una guarda, la acción asociada se activa
+** BDA
+*** El modelo relacional
+
+| Termino informal | Termino formal |
+|------------------+----------------|
+| Tabla            | Relación       |
+| Fila             | Tupla          |
+| Columna          | Atributo       |
+**** Tupla y relación
+Esquema de relación -> es un conjunto de pare de la forma: {(A1, T1),(A2, T2)...(An, Tn)}
+
+Tupla es un conjunto de pares => (nombre_artributo, valor)
+
+Relación es un cojunto de tuplas de dicho esquema
+
+- Consutlar el valor de u tributo de una tupla -> t.Ai
+
+Propiedades de una relación
+- Grado de una relación: número de atributos de su esquema
+- Cardinalidad de un relación: número de tuplas que la forman
+- Compatibilidad: dis relaciones R y S son compatibles si tiene los mismo esquemas
+
+
+El cojunto de esquemas de relación es el esquema lógico de la base de datos
+
+Represntaición tablar de una relación
+- Se elige un orden para la tuplas: filas de la tabla
+- Se elige un orden para los atribulos del esquema de la relación: columanas de la talba
+
+**** Información faltante: valor nulo
+¿Qué sucede cuando no se conoce el valor de una atributo para una tupla?
+ - se utiliza el valor nulo ("?")
+
+El valor nulo representa la ausencia de valor
+La presencia de valor nulos exie el uso de una lógica trialuada y de predicados especiales
+Se ausume que todo tipo tiene el valor nulo
+
+<> (distinto)
+
+Compara cualquier valor con un nulo da como resultado "indefinido"
+- Lógica trivaluado (Cierto[C], Falso[F] e Indefinido[I])
+
+
+- C ^ F = F
+- C v F = C
+- C ^ I = I
+- C v I = C
+- F ^ I = F
+
+Predicado "NULO"
+nulo(t.A) se avalúa a CIERTO si el atributo a en la tupla t tine Valor Nulo, en caso contrario se avalúa a FALSO
+
+**** Resticciones de integridad
+- clavve primaria
+- clave unicidad
+- restrución al valor nulo
+- refirencia externa
+
+
+*** Ejercicio
+
+**** Nombre y edad de ls profesores de 'Valencia'
+
+Profesor DONDE provincia='Valencia' [nombre, edad]
+
+SELECT nombre, edad
+FROM pofresor
+WHERE provincia='Valencia'
+
+**** Nombre del departamento junto a el nombre de su director
+
+Depra   tamento[nombre, director] (director, dni) ⨷dni Profesor(nombre, nomb_prof)
+** ISW
+*** Tema 3 - Arquitectura del software
+ En la etapa de descripción de la Arquitectura del Sistema debemos dotar al sistema de una orgnizaicón global en subsistemas
+
+**** Arquitecutra Clinte/servidor
+El servidor es un proveedor de servicios
+El clinte es un consumidor de servicios
+
+**** Arquitectura multicapa
+es un conjunto ordenado de subsistemas, cada uno de os cuales está construido en términos de los que tiene por debajo, y proporciona la bas de la implementación de aquellos que estén por encima de él
+
+- los objetos de cada capa pueden ser independientes
+- existen una relación cliente/servidor entre las capas interiores y superiores
+
+- Arquitectura abierta -> una capa pueden utilizar características de cualquier capa a cualquier nivel
+- Arquitectura cerrada -> una capa sólo utiliza características de su capa inmediatemente inferior
+
+**** Arquitectura de 3 capas
+- *Prenstación* -> La más cercana al usuario
+- *Negocio o Lógica* -> Proporciona la funcionalidad de la apliación
+- *Persistencia o Datos* -> Proporcional persistencia a los datos, a través de bases de datos, ficheros...
+
+*** Ejercicio
+1. d
+2. d
+3. c
+4. b
+5. b
+6. c
+7. a
+8. b
+9. c
+10. b

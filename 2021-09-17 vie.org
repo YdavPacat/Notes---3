@@ -1,0 +1,139 @@
+#+TITLE: septiembre 17, 2021 (viernes)
+** AIC
+*** Ejercico 1.5
+1ª Solución
+- Se una prrogrma de 100 intrucciones
+  + entera 100 - 20 = 80    -> 1 cliclo =  80 cliclos
+  + coma flotante     20    -> 5 ciclos = 100
+                                         -----
+                                          180
+
+  + entera 100 - 20 = 80    -> 1 cliclo =  80 cliclos
+  + coma flotante     20    -> 1 ciclos =  20
+                                         -----
+                                          100
+Acceleración 180/100 = 1,8 => 80% más rápido
+
+2º Solución
+- T_ej = I x CPI x T
+- T_ejAntres = I_1 x CPI_1 x T_1
+- CPI_1 = sum f_i CPI_i = 0,2 x 5 + 0,8 x 1 = 1,8
+
+- T_ejDespues = I_2 x CPI_2 x T_2
+- CPI_2 = sum f_i CPI_i = 0,2 x 1 + 0,8 x 1 =
+
+  S = T_ejAntes / T_ejDespues = 1,8
+*** Ejercicio 1.6
+Coprocesaro c.f x5
+
+Tej = 1 min (con copresasor)
+Tej = 2,5 min (sin copresasor)
+
+% tiempo c.f sin copresador
+
+S' = 1 / (1 - F + (F/S )) = 2,5
+
+- 2,5 = 1 / (1 - F + (F/5)) =» F = 0,75 -> 75%
+*** Ejercicio 1.9
+T_ej = 120 s
+
+dos mejoras:
+ 1. Discos
+    - Reduce t_acceso a un 40%
+    - t_ej = 84 s
+    - 90 €
+ 2. Video
+    - F_video = 30%
+    - REduce 1/3 del original
+    - 125 €
+
+
+ a) si coste 300€
+    mejrojar por separado
+    - Disco
+      + Coste_1 = 300€
+      + Coste_2 = 300€ + 90€ = 390
+      + S = T_ej1 / T_ej2 = 120 / 84 = 1,43
+      + C_2 / C_1 = 390/300 = 1,3
+
+        SI aumenta la relación conste/redimiento
+    - Video
+      + Coste_1 = 300€
+      + Coste_2 = 425€
+      + S' = 1 / (1-F + (F/S)) = 1 / (1 - 0,3 + (0,3)) = 1,25
+      + C_2 / C_1 = 425/300 = 1,42
+        NO aumente la relación conste prestaciones
+ b)
+    - Coste_1 = x
+    - Coste_2 = x + 90 + 12
+      Ley de andal 2 mejoras
+                                   1
+    S = -----------------------------------------------------------
+        1-F_video - F_disco + (F_video/S_video) + (F_disco/S_disco)
+
+    - 120 / 84 = 1 / (1- F_disco + (F_disco/2,5)) =» F_disco = 0,5
+
+                     1
+    S = --------------------------------- = 2
+        1-0,3 - 0,5 + (0,3/3) + (0,5/2,5)
+
+        P_2/P_3 = 2 > C_2 / C_1 = (X+215)/X
+        2 > (X+215)/X
+        *X > 215 €*
+*** Tema 1.3
+**** Generalidad sobre los jerfos de intrucciones
+Factores de diseño del juego de intrucciones
+- el jeugo intrucciones esl la intrefaz entre los programas  la ruta de datos
+- la intrucciones son el producto de la compilación -» el usuario del juego de intrucciones es el compilador
+- la experiencia con la compilación hace pensar que aunque slgunos regramas pueden ser muy complejos, la mayoría son muy simples
+- Las instrucciones simples puede ejecutarse rápidamente sobre una ruta de datos simple
+
+Propiedades de los jeugos de intrucciones
+- Principio básico -> Caso frecuente: eficiente Caso raro: correcto
+- Regularidad /Ortogonalidad -> las operaciones, modos de direciconamiento y tipos de datos deben ser independites (ayuda a los compiladores)
+- Ofrecer primitivas y no soluciones -> eviar incluir soluciones que den soprte directo a contrucciones de alto nivel.
+- principio "uno o todo" -> o hay una solo forma de hacer una determinado cosa, o todas las formas son posibles
+- Incorporar intrucciones que operen con contantes conocidas en tiempo de compilación
+
+**** el juego de intricciones de MIPS64
+*ETC*
+**** tipos de juegos de intruciones
+**** registros y tipos de operando
+**** codificación de las instrucciones
+**** direciconamiento de la memoria
+**** control de flujo
+**** intrucciones SIMP
+** TSR
+**** Comparaam ventajas/incovenietnes de los dos modelos
+- Servidor concurente
+  Ven. cada hilo se puede sustpende por seprado
+  Inc. gestionar el esatd compartido requiere control concurrencia
+  Inc. Complejidad: dificil implantar sin errores,
+- asincrono
+  ven. evita la complejidad de gestionar estado compartido
+  ven. modelo más primo a la fomra dreal de trabajo
+  inc. tiene que considerase el orden de activación (orden en la cola de evento {promesas, async, etc})
+  inc. todo entorno tiene que ser asisncrónico
+*** Tema 2 - NodeJS y JavaScrip
+JavaScrip
+- lenguaje de alto nivel de abstración
+  + programas más sencillos
+  + desarrolo más rápido
+
+- principalmente uso para páginas web
+- orienda a evento e teraccion asincrónics
+- no soprta distintos hilos de ejecución
+- soprta programación funcional y Orientda a Objetos
+
+NodeJS
+- entorno orienta a la creación de apliación para Internet en el contexto del servidor
+- permite hacer ágil
+
+JavaScrip
+- Variable dinámica
+
+
+JavaScrip
+- Variable dinámica
+** ISW
+*** Visual Studio - Git

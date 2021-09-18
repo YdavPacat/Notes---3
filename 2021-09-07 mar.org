@@ -1,0 +1,98 @@
+#+TITLE: septiembre 07, 2021 (martes)
+** TSR
+Profesor: Juan Salvador, Sendra Roig
+*** Evaluación
+- Dos pruebas tipo test [40% cada una]
+  + Cada una requiere un MÍNIMO de 3/10.
+- Una prueba de respuesta abierta [20%]
+  + Contenidos de la práctica 2
+  + MÍNIMO de 3/10
+- Las tres pruebas pueden recuperase de forma independiente al final de semestre
+- La evaluacion de prácticas está incluida en estos parciales
+** BDA
+Profesor: Luis Felip Hurtado Oliver
+          lhurtado@dsic.upv.es
+*** Objetivo
+- Uso intensivo de base de datos
+- Dominio de la creación de base de datos
+*** Contenidos
+- Base de datos relacionales
+- SQL
+- Sistemas de gestión de base de datos
+- Diseño de base de datos relacionales
+*** Evaluación
+- 4 actos de evaluacion
+  + Pruebas cortas
+    - C1: UD1 [10 %]
+    - C2: UD2 (práctica) [10 %]
+  + Pruebas abiertas
+    - P1: UD2 [40 %]
+    - P2: UD3 y UD4 [40 %]
+- La recuperación constará de tres partes pudiendo un alumno realizar las que desee:
+  + Pruebas Cortas:
+    - RC1: 1 punto sobre la UD1
+  + Pruebas abiertas:
+    - RP1: 4 puntos sobre la UD2
+    - RP2: 4 puntos sobre la UD3 y UD4
+
+
+*** UD 1
+**** Conceptos básicos
+***** sistema de informaición
+Objetivo: gestionar la informaición necesaria para el cumplimiento de sus fines
+Funciones:
+  - Recoginda
+  - Almecenamiento
+  - Procesamiento
+  - Recuperación
+Partes:
+  - Contenido
+  - Equipo físico
+  - Equipo lógico
+  - Administrador
+  - Usuarios
+***** Base de datso
+Colección estructurada de datos (en tablas)
+
+- Propiedades estáticas
+- Propiedades dinámicas
+***** Siste, de gestión de base de datos
+Software para la gestión de base de datos
+
+SQL y Oracle
+
+****** Familias de SGBD:
+Jerárquicos
+en red
+Relacionales -> tablas
+
+
+***** Característics de la técnicas de BD
+ - Integración de la información
+ - Persistencia de los datos
+ - Accesibilidad simultánea para distintos usuario
+ - Descripción unificada de los datos e idependiente de los programas
+ - Idependecia de los programas repecto a la rerpesentación física de los datos
+ - Defincion de vistas parciales de los datos para distintos usuarios
+ - Mecanimos para controlar la /integridad y la seguridad/ de los datos
+** ISW
+Profesor: Eliseo Jorge Marzal Calatayud
+emarzal@dsic.upv.es
+*** Practicas
+Visual Studio/ C#
+Trabajo en equipo: 4 miembros
+*** Evaluación
+
+- Teoría
+  + Prueba escrita de respuesta abierta
+    - Acto Teoría 1 - 20% | Mínimo de 4/10
+    - Acto Teoría 2 - 20% | Mínimo de 4/10
+  + Caso práctico en clase
+    - 2 Casos - 5% cada uno
+- Prácticas
+  + Proyecto de laboratorio | Mínimo de 4/10
+    - Sesión de práctica 8 - 30%
+    - Sesión de práctica 10 - 10%
+  + Coevaluación por pares - 10%
+
+

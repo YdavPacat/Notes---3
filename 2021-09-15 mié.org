@@ -1,0 +1,109 @@
+#+TITLE: septiembre 15, 2021 (miércoles)
+** AIC
+
+Prestaciones -> tiempo de ejecución
+                productividad= 1/Tejec
+
+Principios cuantitativos
+Tej = I x CPI x T
+
+I -> compilador
+CPI -> juego de intrucciones simple
+T -> juego de intrucciones complejo
+*** Ley de Amdahl
+Describe cómo afecta el cambio de una prate de un proceso en el total
+
+F -> es la fracción de tiempo de cambia
+S -> es la aceleración que se aplica a esa fracción
+
+[S]global = [T]antes / [T]despues = 1 / ((F/S) + 1 - F)
+
+La ley de Amdahl se peude generalizar para múltiples fracciones (n), a cada una de la cuales se aplica una aceleración lacal distinta
+
+[S]' = 1 / (1 - sum[Fi] + sum[Fi/Si])
+*** Medida de prestaciones
+para medir prestaicones, hay que escoger programas de pruebas. Hay que desponer del código fuente para compliarlo para cada computador bajo análisis
+
+Mejor -> Programas reales
+
+Otras opciónes
+ - Núcleos
+ - Toy benchmarks
+ - Test sintéticos
+
+
+ Comparación de computadore
+ - Tiempo total de ejecución
+ - Media aritmética de los tiempos de ejecución
+ - Tiempo de ejecución ponderao -> sumar los tiempos y divir
+ - la medida geométrica de los tiempos de ejecución normalizados a una máquina de referencia -> hacer los la mejorara en cada programa, multiplicarlos y hacer la raíz
+
+MIPS -> millones de intrucciones por segundo
+MFLOPS -> millones de operaciones de coma flontante
+*** Ejercicios
+**** 1.1
+Opciones A y B
+
+Reloj de A 5% más rápido de B
+
+Un programa compilada para A tiene un 30% de intrucciones del tipo load/store
+B reduce en un 1/3 el número de intracciones de este tipo
+
+TejA = Ia x CPIa x Ta
+TejB = Ib x CPIb x Tb
+
+** SIN
+Busqueda en un espacio de estados
+- Carecteristicas estáticas
+- Carecteristicas dinámicas
+
+
+Conjunto de estados por los que pasa el problema -> base de hechos
+
+#+begin_src elisp
+(defacts jarras
+   (capacidad jarra X 4)
+   (capacidad jarra Y 3)
+   (contendio jarra X 0 jarra Y 0)
+)
+#+end_src
+
+#+begin_src elisp
+(defrule vaciar_Y_en_X
+  (contenido jarra X ?x jarra Y ?y)
+  (capacidad jarra X ?cap_X)
+  (test (and(< ?x ?cap_X) (> ?y 0)))
+  (test (<=(+ ?x ?y) ?capX)
+)
+#+end_src
+
+*** pattern matching
+es el proceso de unificaicón de lospatrones de la parte izuierda de una regla con los hechos de BH.
+
+El motor de interencia de CLIPS unifica auntomáticmanete los patrones de las reglas de la BR con los hechos de la BH y determinar las reglas que son aplicables
+
+Los patrones pueden contener
+- Constantes
+- Variables mono-valuadas o simples
+  + empienzan con un signos de interogación '?'
+  + un único valor
+  + Eje: (?x)
+- Varibles multi-valuadas
+  + comienza con el signo '$?'
+  + se pueden ligar a cero o más valores
+  + Eje: ($?x)
+- Comodin (wildcards)
+  + son variables especiales que se pueden ligar a culaquier contante o conjunto de constantes pero sin mantener los valores ligados
+  + el propósito de los comodines es unificar valor del hecoh sin matener los valores ligados a una variable
+
+*** Tema 2
+
+**** Motor de inferencia
+Puzzle lineal:
+BH -> (deffacts data
+        (puzzle W E B B W))
+
+**** Estrategias de resolución de conflictos
+CLIPS -> aplica refracicón, no perminetodo que una regla se dispare dos veces con los mimsos datos, envitnado así que se dispere
+
+**** TODO Videos
