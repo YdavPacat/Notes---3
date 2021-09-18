@@ -1,0 +1,21 @@
+#+TITLE: septiembre 18, 2021 (sábado)
+** SIN
+*** Bloque 1, Tema 1, Lección 2
+**** Base de reglas en Clips
+- Antencedente (Parte izquierda o LHS) -> condiciones que deben satisfacerse en una situación del problema para que la regla sea aplicable
+- Consecuente (Parte derecha) -> la acciones que se ejecutan cuando la regla es aplicable y se selecciona para ejecutarlas (disparo de la regla)
+
+Los elementos condicionale de la LHS de una regla son de dos tipos:
+- Patrón: restricción que se utiliza para dtermina los hehco que satisfacen la condición espeficicda en el patrón
+- Test: expresión boolena que se evañua a True o False
+#+begin_src elisp
+(defrule move_cel_to_left
+  (puzzle ?x0 ?y0 0)      ;; Patron 1
+  (puzzle ?x1 ?y1 ?cell)  ;; Patron 2
+  (test (and (< ?y0 3)(= ?x0 ?x1))) ;; test 1
+  (test (= ?y1 (+ ?y0 1)))          ;; test 2
+=>
+
+...
+
+#+end_src
