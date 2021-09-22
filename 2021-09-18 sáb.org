@@ -8,7 +8,7 @@
 Los elementos condicionale de la LHS de una regla son de dos tipos:
 - Patrón: restricción que se utiliza para dtermina los hehco que satisfacen la condición espeficicda en el patrón
 - Test: expresión boolena que se evañua a True o False
-#+begin_src elisp
+#+begin_src CLIPS
 (defrule move_cel_to_left
   (puzzle ?x0 ?y0 0)      ;; Patron 1
   (puzzle ?x1 ?y1 ?cell)  ;; Patron 2
