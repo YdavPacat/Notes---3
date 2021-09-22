@@ -19,3 +19,15 @@ Los elementos condicionale de la LHS de una regla son de dos tipos:
 ...
 
 #+end_src
+*** Bloque 1, Tema 2, Lección 3
+**** 1. Pattern-mactching (unificación de reglas)
+
+Opciones de matching entre un patrón y los hechos de la BH
+| 1 | patrón       | hecho       | solo una unificación                                                                      |
+| 2 | patrón       | hecho 1 y 2 | el mismo patrón unifica una vez con direrente hechos                                      |
+| 3 | patrón 1 y 2 | hehco       | diferente patrones unifican con el mismo hecho                                            |
+| 4 | patrón       | hehco       | varias unificaciones entre el patrón y el hecho debido al uso de variables multi-valuadas |
+
+Unificación de reglas:
+- Existen al menos un hecho en la BH que unifica con cada patrón de la regla
+- Todos los test de la regla se evalúan a TRUE

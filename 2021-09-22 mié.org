@@ -1,0 +1,48 @@
+#+TITLE: septiembre 22, 2021 (miércoles)
+** AIC
+*** Tipos de juegos de intrucciones
+3 paradigmas
+- Stack: pila -> CPU
+- Acumulador
+- Registros de uso general (actual)
+  + n -> num. de opera,dos de una instruciones aritmética
+  + m -  cuales de los operandos puede ser dir de memoría
+  + m = 0   reg-reg
+  + m < n   reg-mem
+  + m = n   mem-mem
+
+Dos tipos mayoritarios de juego de instracciomes
+- IA (Intel Arcjitecture)
+- RISC
+  |              | Intel Archictecture | RISC |
+  |--------------+---------------------+------|
+  | Modelo prog. |                     |      |
+  |              |                     |      |
+** SIN
+*** Ejecicio
+#+begin_src clips
+(defrule quitar
+  ?f1 <- (lista $?x ?i1 $?y ?i2 $?z)
+   (test (eq $i1 $i2))
+=> )
+#+end_src
+
+
+#+begin_src clips
+(defrule R1
+    ?f <- (lista $?x ?a $?y)
+=>
+  (retract ?f)
+  (assert (lista $?x ?a $?y)))
+#+end_src
+
+Poner a 0 los elementos de la lista que no estan el la posición que les correponde
+#+begin_src clips
+(defrule elemina_no_ordenados
+    ?f <- (lista $?x ?a $?y)
+    (and (test (<> ?v 0)))
+    (test (<> (length $?x)(- ?v 1)))
+=>
+    (retract ?f)
+    (assert (lista $?x 0 $?y)))
+#+end_src

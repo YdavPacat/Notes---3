@@ -1,0 +1,31 @@
+#+TITLE: septiembre 21, 2021 (martes)
+** TSR
+*** Java Script
+- Sintaxis, parecida a Java y C
+- Valores
+  + primitivos -> al desclarar variables se crea un copia
+  + compuestos -> son punteros a donde se encuntra el objeto en la memoria
+- Variables
+  + Tipo dinámico -> la variables no se le asigna valor en tipo de compilación
+  + Propiedades y métodos sobre valores ->
+  + Ámbito declaración
+    - const
+    - (implícita) -> no utilizar, ambito global
+    - var -> ambito local a función
+    - let -> es el más parecida a Java, ambito local al bloque
+** BDA
+*** Retricción de intragridad
+Clave ajena con más de un atributo
+ 1. K es un subconjunto de atriutos del esquema S, K = {B_i, ..., B_k} y J es un subonjunto de atributos del esquema de R, J = {A_j, ...,A_m}
+ 2. Una biyección f. K -> J tal que:
+    - J tiene retricicón de inidad o es la clavee primaria de R
+    -
+ 3. un tipo de ingridad refoerecial que puede ser:
+    - Débil
+      + para toda tubla de S se debe cumplir que si todods los atributos de K tiene un valor que no es nulo, entonces debe existir una tupla en R que tomo esos mismos valores e los correspondiente atributos de J
+    - Parcial
+      + para toda tupla de S se debe cumplir que si algún atributo de K no tiene valor nulo, enotonces debe existir una tupla en R que tenga un los correspondientes atributos de J los mismos valores que los atributos de K que no tiene valor
+    - Completa
+      + para tooda tupla de S se debe cmplir que o todos los atrubustos de K tienen vaor nulo o nuguno tiene valor nlo y entonces debe exisitr una tupas S [..]
+** ISW
+*** Diagrama de clase - UML
