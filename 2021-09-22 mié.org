@@ -14,11 +14,42 @@
 Dos tipos mayoritarios de juego de instracciomes
 - IA (Intel Arcjitecture)
 - RISC
-  |              | Intel Archictecture | RISC |
-  |--------------+---------------------+------|
-  | Modelo prog. |                     |      |
-  |              |                     |      |
+  |                | Intel Archictecture   | RISC               |
+  |----------------+-----------------------+--------------------|
+  | Modelo prog.   | Registro-Memoria      | Load/Store         |
+  | Registros      | Pocos, long. variable | Muchos, long. fija |
+  | Formato instr. | Variable              | Fijo (32 bits)     |
+
+La elección afecta al tiempo de ejecución
+- RISC
+  + Un programa tiene más instrucciones para hacer el mismo trabajo
+  + Formato más sencillo, más fácil de codificar
+  + cantidad de trabajo por instrucción homogénio
+- IA
+  + Un programa tiene menos intrucciones para hacer el mismo trabajo
+  + Formato variable, más dificil de codificar
+  + cantidad de trabajo por instrucción muy diferente
+*** Registros y tipos de operando
+- RISC
+  + los registros son numerosos y tiene todos igual tamaño
+  + cada instrucción de cálculo opera con el contenido completo de los registros
+- IA
+  + Poco registros, y adaptados a los tipos de datos disponibles
+  + Cada instrucción aritmética tiene un código de operación para cada tipo
+
+Es más fácil cambiar la longitud de la palabra en RISC
+*** Codificación de las intrucciones
+**** Formato fijo y variable
+- Fijo: Todas la instrucciones se codfical utulizando el mismo número de bits
+- Variable: el número de bits requerido para condificar la instrucción varía según el tipo de instrucción
+**** Num. de bits de formato
+El núemro de bits destinado al formato impoen un límite al espacio destinado a casa uno de los campos
+**** Num. de formatos de instrucción
+- Fomato único: la correspondencia entre los bits de formato y los campos es siempre la misma
+- Múltiples formatos: cada formato puede tener campos distintos y define una correpondencia entre éstos y los bits del formato
+
 ** SIN
+
 *** Ejecicio
 #+begin_src clips
 (defrule quitar
@@ -45,4 +76,29 @@ Poner a 0 los elementos de la lista que no estan el la posición que les correpo
 =>
     (retract ?f)
     (assert (lista $?x 0 $?y)))
+#+end_src
+
+
+Problema de los misioneros y caníbales
+#+begin_src clips
+(problema izquierda M³ C³ derecha M³ C³ barca pos)
+(problema M³ C³ M³ C³ pos)
+
+(deffacts Rio
+  (problema 3 3 0 0 I))
+
+(defrule pasar-C-derecha
+    (problema ?MI ?CI ?MD ?CD I)
+    (test (> ?CI 0))
+    (test (or (< ?CD ?MD) (= ?>MD 0)))
+=>
+  (assert (problema ?MI (- ?CI 1) ?MD (+ ?CD 1) D))
+
+
+(defrule pasar-M-derecha
+    (problema ?MI ?CI ?MD ?CD I)
+    (test (>= ?MI 1))
+    (test (or (<= ?C1 (- ?MD 1)) (= ?>MI 1)))
+=>
+  (assert (problema ?MI (- ?CI 1) ?MD (+ ?CD 1) D))
 #+end_src
