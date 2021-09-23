@@ -1,0 +1,121 @@
+#+TITLE: septiembre 23, 2021 (jueves)
+** BDA
+| ciudad   | guia |
+|----------+------|
+| Valencia | g1   |
+| Valencia | g2   |
+| Vigo     | g1   |
+
+Integridad Referencia DEBIL
+ | código | destino  | guia |   |
+ |--------+----------+------+---|
+ | v1     | Valencia | g2   | + |
+ | v2     | Vigo     | g2   | - |
+ | v3     | nulo     | nulo | + |
+ | v4     | Valencia | nulo | + |
+ | v5     | XXXX     | nulo | + |
+
+ Integridad Referencia PARCIAL
+ | código | destino  | guia |   |
+ |--------+----------+------+---|
+ | v1     | Valencia | g2   | + |
+ | v2     | Vigo     | g2   | - |
+ | v3     | nulo     | nulo | + |
+ | v4     | Valencia | nulo | + |
+ | v5     | XXXX     | nulo | - |
+
+ Integridad Referencia TOTAL
+ | código | destino  | guia |   |
+ |--------+----------+------+---|
+ | v1     | Valencia | g2   | + |
+ | v2     | Vigo     | g2   | - |
+ | v3     | nulo     | nulo | + |
+ | v4     | Valencia | nulo | - |
+ | v5     | XXXX     | nulo | - |
+
+*** Integridad Refernecial
+En general frente a una actulización de la BD que viole alguna restricción, el SGBD la rechaza, dejando la BD en el estado anterior a la modifcación
+
+La comprobación de la restricciones es comepetencia de SGBD que ha de gratizar que toda actulización de la BD genera una nueva extensión que satisfaga atoda las restricciones de integridad
+
+En algunos casos sería deseable un comportamiento menos rígidos que permita indicar al SBBD lo que debe hacer cuando se viole la integridad
+
+*** Ejercicio
+Despacho
+| coddes | edificio | capacidad |
+|--------+----------+-----------|
+|    228 | 1F       |         5 |
+|    010 | 1F       |         5 |
+|    228 | 1G       |         1 |
+|    234 | 2G       |         2 |
+
+Telefono
+| numero | coddes | edificio |
+|--------+--------+----------|
+|   3541 |    228 | 1F       |
+|   3540 |    010 | 1F       |
+|   3202 |    228 | 1G       |
+
+Borrado a nulo y modificación en cascada
+**** Borrar la tuplas en Despacho con capacidad >2
+Despacho
+| coddes | edificio | capacidad |
+|--------+----------+-----------|
+|    228 | 1G       |         1 |
+|    234 | 2G       |         2 |
+
+Telefono
+| numero | coddes | edificio |
+|--------+--------+----------|
+|   3541 |    228 | 1F       |
+|   3540 |      ? | ?        |
+|   3202 |    228 | 1G       |
+
+**** Modificar las tuplas en Despacho con capacidad >=5 pasando  a valer edificio = 1G
+Despacho
+| coddes | edificio | capacidad |
+|--------+----------+-----------|
+|    228 | 1G       |         5 |
+|    010 | 1G       |         5 |
+|    228 | 1G       |         1 |
+|    234 | 2G       |         2 |
+
+Telefono
+| numero | coddes | edificio |
+|--------+--------+----------|
+|   3541 |    228 | 1G       |
+|   3540 |    010 | 1G       |
+|   3202 |    228 | 1G       |
+
+**** Modificar las tuplas en Despacho con edificio = 1F pasando a valer edificio = 1G
+No se puede, viola la CP
+
+Despacho
+| coddes | edificio | capacidad |
+|--------+----------+-----------|
+|    228 | 1F       |         5 |
+|    010 | 1F       |         5 |
+|    228 | 1G       |         1 |
+|    234 | 2G       |         2 |
+
+Telefono
+| numero | coddes | edificio |
+|--------+--------+----------|
+|   3541 |    228 | 1F       |
+|   3540 |    010 | 1F       |
+|   3202 |    228 | 1G       |
+
+**** Borrar las tuplas en Telefono con numero = 3541
+Despacho
+| coddes | edificio | capacidad |
+|--------+----------+-----------|
+|    228 | 1F       |         5 |
+|    010 | 1F       |         5 |
+|    228 | 1G       |         1 |
+|    234 | 2G       |         2 |
+
+Telefono
+| numero | coddes | edificio |
+|--------+--------+----------|
+|   3540 |    010 | 1F       |
+|   3202 |    228 | 1G       |
