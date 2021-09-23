@@ -119,3 +119,58 @@ Telefono
 |--------+--------+----------|
 |   3540 |    010 | 1F       |
 |   3202 |    228 | 1G       |
+
+** CPA
+
+*** Tipos de variables
+si no se especifica el alcance de una variable, por defecto es privada
+
+- private
+  #+begin_src c
+  suma = 0;
+  #pragma opm parallel for private(suma)
+  for (i=0; i < n ; i++)
+    suma = suma + x[i]*x[i];
+  #+end_src
+  Incorrecto: tras el buclo sólo existe la suam del hilo principal (con valor 0) - además, las copias de cada hilo no se inicializan
+
+- shared
+  #+begin_src c
+  suma = 0;
+  #pragma opm parallel for shared(suma)
+  for (i=0; i < n ; i++)
+    suma = suma + x[i]*x[i];
+  #+end_src
+  Incorrecto: condición de carrera al leer/escribir
+
+- reduction
+  #+begin_src c
+  suma = 0;
+  #pragma opm parallel for reduction(+:suma)
+  for (i=0; i < n ; i++)
+    suma = suma + x[i]*x[i];
+  #+end_src
+  cada hilo realiza una porción de la suma, al final se combinan e nla suma total
+
+  Es como una variable privada, pero:
+  - los valores se combinan
+  - se inicializa correctamente
+
+- firstprivate
+  + las variables privadas se crea sin un valor incial y tra el bloque parallel quedan indefinada
+- lastprivate
+  + se que con el valor de la "úlima" iteración
+
+*** Ejercicio
+
+**** ej8
+Soy hilo 0 Valor de a = 8
+Soy hilo 1 Valor de a = 8
+---
+Soy hilo 0 Valor de a = 5
+---
+Soy hilo 0 Valor de a = ??? (indefinada)
+Soy hilo 1 Valor de a = ??? (indefinada)
+---
+Soy hilo 0 Valor de a = 5
+Soy hilo 1 Valor de a = 5
