@@ -175,7 +175,6 @@ Soy hilo 1 Valor de a = ??? (indefinada)
 ---
 Soy hilo 0 Valor de a = 5
 Soy hilo 1 Valor de a = 5
-
 #+end_src
 *** Mejor de prestaciones
 La paralelización de bucles supon un overhead: activación y desactivación de hilo, sincronizción
@@ -229,3 +228,67 @@ double fuction(double A[M][N], double x[N], double y[M]){
     return suma2;
 }
 #+end_src
+**** ej10
+#+begin_src c
+int i, j;
+double prod;
+
+#pragma omp parallel for private(i)
+for (j=0; j<N ; j++){ // intecambio de bucles
+    for (i=1;i<M;i++){
+        A[i][j] = 2.0 * A[i-1][j]
+    }
+}
+
+prod = 1.0;
+#pragma omp parallel for private(j) reduction(*: prod)
+for (i=0;i<M;i++){
+    for (j=0; j<N;j++)
+        prod = prod * A[i][j];
+}
+return prod;
+#+end_src
+*** Planificación
+Idelmente, todas las iteraciones cuestan lo mismo y cada hilo se le asigna aproximadamente el mismo número de interaciones
+
+En realidad, se puede producir desequilibro de la carga con la consiguiente pérdida de prestaciones
+
+Dos tipos:
+- Estática: interaciones se asignan a hilos a priori
+- Dinámica: interaciones se asignan a posteriori
+
+  #+begin_src c
+    shedule(type[,chunk])
+  #+end_src
+Type:
+- static
+- dynamic
+- guided
+*** Ejercicio
+**** ej11
+a) sea estático con bloque de igual longuitud
+   #+begin_src c
+   #pragma opm parallel
+   #+end_src
+b) sea estático y cíclico
+   #+begin_src c
+   #pragma opm parallel schedule(static, 1)
+   #+end_src
+
+c)
+   #+begin_src c
+   #pragma opm parallel schedule(static, 10)
+   #+end_src
+
+d)
+   #+begin_src c
+   #pragma opm parallel schedule(dynamic, 5)
+   #+end_src
+
+e)
+   #+begin_src c
+   #pragma opm parallel schedule(runtime)
+   #+end_src
+   #+begin_src bash
+   $ OMP_NUM_THREAD=64 OMP_SCHEDULE=static,2 ./progama
+   #+end_src
