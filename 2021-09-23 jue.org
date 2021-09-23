@@ -164,6 +164,7 @@ si no se especifica el alcance de una variable, por defecto es privada
 *** Ejercicio
 
 **** ej8
+#+begin_src
 Soy hilo 0 Valor de a = 8
 Soy hilo 1 Valor de a = 8
 ---
@@ -174,3 +175,57 @@ Soy hilo 1 Valor de a = ??? (indefinada)
 ---
 Soy hilo 0 Valor de a = 5
 Soy hilo 1 Valor de a = 5
+
+#+end_src
+*** Mejor de prestaciones
+La paralelización de bucles supon un overhead: activación y desactivación de hilo, sincronizción
+
+- clausula if
+  #+begin_src c
+  #pragma omp parallel for (if n>5000) // paraleliza cuando n vale más de 5000
+  #+end_src
+
+**** Bucles anidados
+Hay que poner la directiva antes del bucle a paralelizar
+- (en el bucle externo) La interación de i se reparten; el mismo hilo ejecutta el bucle j
+- (en el bucle interno) En cada interaicón de i se activan y desactivan los hilos; hay n sincronizaciones
+
+*** Ejercicio
+**** ej9
+Bucle externo
+#+begin_src c
+double fuction(double A[M][N], double x[N], double y[M]){
+    int i, j;
+    double suma1, suma2;
+    suma2 = 0;
+    #pragma omp parallel for private(j, suma) reduction(+:suma2)
+    for (i=0;i<M;i++){
+        suma = 0;
+        for(j=0;j<N;j++){
+            suma = suma + A[i][j] * x[j];
+        }
+        y[i] = suma;
+        suma2 = suma2 + y[i];
+    }
+    return suma2;
+}
+#+end_src
+
+Bucle interno
+#+begin_src c
+double fuction(double A[M][N], double x[N], double y[M]){
+    int i, j;
+    double suma1, suma2;
+    suma2 = 0;
+    for (i=0;i<M;i++){
+        suma = 0;
+        #pragma omp parallel for reduction(+:suma)
+        for(j=0;j<N;j++){
+            suma = suma + A[i][j] * x[j];
+        }
+        y[i] = suma;
+        suma2 = suma2 + y[i];
+    }
+    return suma2;
+}
+#+end_src
