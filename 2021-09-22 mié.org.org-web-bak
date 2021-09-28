@@ -1,0 +1,19 @@
+#+TITLE: septiembre 22, 2021 (miércoles)
+** AIC
+*** Tipos de juegos de intrucciones
+3 paradigmas
+- Stack: pila -> CPU
+- Acumulador
+- Registros de uso general (actual)
+  + n -> num. de opera,dos de una instruciones aritmética
+  + m -  cuales de los operandos puede ser dir de memoría
+  + m = 0   reg-reg
+  + m < n   reg-mem
+  + m = n   mem-mem
+
+Dos tipos mayoritarios de juego de instracciomes
+- IA (Intel Arcjitecture)
+- RISC
+  |              | Intel Archictecture | RISC |
+  |--------------+---------------------+------|
+  | Modelo prog. |

@@ -1,0 +1,12 @@
+#+TITLE: septiembre 24, 2021 (viernes)
+** ACI
+*** Direcciónamiento de la memoria
+- Little endian
+- Big enedina
+**** Alinamiento
+- RISC - Acceso alineado
+  + la direcicón del objeto de 2^i bytes es multiplo de 2^i
+  + Es decir: la dirección de un halfworld es siempre par y la dirección de una word es múltiplo de 4
+- AI - Acceso no alieneado
+  + no hay restricción
+  + una intrucción puede acceder bytes contiguos en dos palabrea consecutivas, y si ejecución exigirá dos accesos físicos a la memoria

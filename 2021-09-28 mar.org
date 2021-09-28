@@ -1,0 +1,41 @@
+#+TITLE: septiembre 28, 2021 (martes)
+** TSR
+#+begin_src js
+function sums (a,f){
+    let b = []
+    let acc = a[0]
+    b.push(acc)
+    for (i = 1; i<a.length; i++){
+        acc = f(acc,a[i])
+        b.push(acc)
+    }
+    return b
+}
+
+let array = [2,3,4,1];
+console.log(sums(array,(a,b)=>a*b))
+#+end_src
+
+#+RESULTS:
+: [2 (\, 6) (\, 24) (\, 24)]
+#+begin_src js
+function fs(f){
+    return a => {
+        let b = []
+        let acc = a[0]
+        b.push(acc)
+        for (i = 1; i<a.length; i++){
+            acc = f(acc,a[i])
+            b.push(acc)
+        }
+        return b
+    }
+}
+
+let array = [2,3,4,1];
+const sums = fs((a,b)=>a*b)
+console.log(sums(array))
+#+end_src
+
+#+RESULTS:
+: [2 (\, 6) (\, 24) (\, 24)]
