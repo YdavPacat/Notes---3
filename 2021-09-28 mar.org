@@ -17,7 +17,8 @@ console.log(sums(array,(a,b)=>a*b))
 #+end_src
 
 #+RESULTS:
-: [2 (\, 6) (\, 24) (\, 24)]
+: [2,6,24,24]
+
 #+begin_src js
 function fs(f){
     return a => {
@@ -38,4 +39,29 @@ console.log(sums(array))
 #+end_src
 
 #+RESULTS:
-: [2 (\, 6) (\, 24) (\, 24)]
+: [2 , 6 , 24 , 24)]
+
+*** Eventos
+#+begin_src js
+const ev = require('events')
+const emisor = new ev.EventEmitter
+emisor.on('event', (i)=> {
+  console.log('Llego el evento ' + i)
+})
+emisor.emit('event',1)
+emisor.emit('event',2)
+#+end_src
+
+#+RESULTS:
+: Llego el evento 1
+: Llego el evento 2
+: undefined
+
+** BDA
+*** Introducción SQL
+*** SELECT. Consultas sencillas sobre una tabla
+#+begin_src sql
+--Nombre y edad de todos los ciclistas
+SELECT
+FROM
+#+end_src
