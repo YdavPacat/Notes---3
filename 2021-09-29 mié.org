@@ -41,3 +41,51 @@ float Scalar(int n, float *X, float *Y) {
     return prod;
 }
 #+end_src
+** SIN
+#+begin_src clips
+(deffacts mapa
+  (limintes 5 11)
+  (hueco 5 2)
+  (hueco 3 3)
+  (hueco 8 3)
+...
+)
+
+;; Información dinámica
+fact-n: (problama pos... enemigo .... enemigo .... caja ... caja ...)
+#+end_src
+*** Tema 4
+**** Definición del problema
+- Repesetación basadada en estados
+- Estado inicial (s0)
+- Estado objetivo o final (sg)
+- Acciones del problema {a1, a2, a3, a4}
+- Modelo de transición: Result(s,a)
+- Espacio de estados: grafo
+- Camino ?
+
+
+*Coste del camino*: función que asigna un coste numérico a cada camino. Se describe como la suma de los costes de la acciones individuales del camino
+**** Busqueda de soluciones
+Proceso general de búsqueda
+1. nodo actual <- Estado inicila del problema
+2. Comprobar si nodo-actual es el estado final del proble; en dicho caso, FIN
+3. Aplicar las acciones del problema en dicho estado y genera el conjunto de nuevos estados
+4. Escoger un nodo que no ha sido expandido todavía (nodo-actual)
+5. Ir al paso 2
+***** Algoritmo TREE-SEARCH
+- Manitiene lista OPEN (pero no lista CLOSED): memos memoria
+- Caundo se expande un nodo, se elimna de OPEN y todos los secesores se añaden a OPEN
+- Control nodos repetidos en OPEN: Elimina el nodo repetido, en la lista OPEN, con peor f(n)
+- Re-expande ndos ya expandidos: Ciclos y caminos redundantes!
+***** Algorttmo GRAPF-SEARCH
+- Mantine lista OPEN y CLOSED (mayores requerimientos de memoria)
+- Control de estados repetidos y caminos redundante (reducción de la búsqueda)
+**** Anchura
+Propiedades:
+- Completa: si hay solución, se encontrará
+- Optima:
+  - Anchura siempre devulve el camino solución más corto (menos profundo)
+  - El camino más corto es óptimo si todas las acciones tiene el mismo costo y camino es una función no decreciente de la profundidad del nodo
+- Complejidad temporal:
+- Complejidad espacial
