@@ -1,0 +1,43 @@
+#+TITLE: septiembre 29, 2021 (miércoles)
+** AIC
+*** Intrucciones SIMD
+Actualmente -> AVX512 (intel)
+**** Soporte del compilador
+Tres maneras de inserta insturccciones SIMD
+- Vectorización automática
+- Usar tipos de datos SIMD
+  - El progamador define las variables de interés con un tipo específico y las utliza en expresiones comunes del lenguaje
+- /Intrinsic functions/
+
+
+Codigo convencional:
+#+begin_src c
+float Scalar(int n, float *X, float *Y) {
+    int i;
+    float prod = 0.0;
+
+    for(i=0; i<n; i++)
+        prod += X[i] * Y[i];
+    return prod;
+}
+#+end_src
+
+
+Codigo SIMD
+#+begin_src c
+float Scalar(int n, float *X, float *Y) {
+    float prod = 0.0;
+    int i;
+    __m128 X_reg, Y_reg, Z_reg;
+    Z_reg = _mm_setzero_ps();
+    for(i=0; i<n; i+=4) {
+        X_reg = _mm_load_ps(&X[i]);
+        Y_reg = _mm_load_ps(&Y[i]);
+        Y_reg = _mm_mul_ps(X_reg, Y_reg);
+        Z_reg = _mm_add_ps(Y_reg, Z_reg);
+    }
+    for(i=0; i<4; i++)
+        prod += Z_reg[i];
+    return prod;
+}
+#+end_src
